@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTARG:SA - Next-Gen MTA Client</title>
+    <style>
+        :root {
+            --bg-color: #0d0d11;
+            --card-bg: rgba(22, 22, 29, 0.6);
+            --card-border: rgba(255, 43, 91, 0.2);
+            --primary-red: #ff2b5b;
+            --primary-glow: rgba(255, 43, 91, 0.4);
+            --text-main: #ffffff;
+            --text-sub: #a0a0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 43, 91, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(255, 43, 91, 0.1) 0%, transparent 40%);
+        }
+
+        header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 25px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav a {
+            color: var(--text-sub);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
+        }
+
+        .hero {
+            max-width: 1000px;
+            text-align: center;
+            margin: 40px 20px 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(45deg, #ff2b5b, #ff7395);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .founder-badge {
+            display: inline-block;
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background: rgba(255, 43, 91, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto 40px;
+            padding: 8px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: 0 0 35px rgba(255, 43, 91, 0.3);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.01);
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: var(--primary-red);
+            color: #fff;
+            padding: 16px 42px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 25px var(--primary-glow);
+            transition: 0.3s transform, 0.3s box-shadow;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(255, 43, 91, 0.7);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-red);
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            color: var(--text-sub);
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://cdn.corenexis.com/f/CxV3w56juQs.png" alt="MTARG:SA Logo">
+        </div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#download">Download</a>
+            <a href="#community">Community</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>NEXT-GEN <span>MTA:SA</span> CLIENT</h1>
+        <div class="founder-badge">FOUNDER OF ROYAL</div>
+        <p>One client, instant access. Direct connection with zero extra mod downloads required. Built for maximum performance and modern gameplay.</p>
+        
+        <div class="image-container">
+            <img src="https://cdn.corenexis.com/f/d3LeUAPmPIc.png" alt="MTARG:SA Client Application Interface">
+        </div>
+
+        <a href="#" class="btn-download" id="download">Coming Soon</a>
+    </section>
+
+    <section class="features-grid" id="features">
+        <div class="card">
+            <h3>Direct Connect</h3>
+            <p>Skip additional mod downloads. Just launch the client, connect to the server, and start playing immediately.</p>
+        </div>
+        <div class="card">
+            <h3>FiveM Style UI</h3>
+            <p>Sleek, transparent glassmorphism layout complete with friends panels, upcoming event trackers, and replay shortcuts.</p>
+        </div>
+        <div class="card">
+            <h3>Max Optimization</h3>
+            <p>Engineered for high FPS stability during heavy gameplay, gang wars, and large car meets.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 MTARG:SA Client. Founder Of Royal. All rights reserved.
+    </footer>
+
+</body>
+</html>
